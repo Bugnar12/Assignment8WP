@@ -13,7 +13,7 @@ public class DBManager {
 
     public static void connect() {
         if (connection == null) {
-            String url = "jdbc:sqlserver://DESKTOP-Q7V5AP;databaseName=Assignment8_WP;integratedSecurity=true;";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=Assignment8_WP;integratedSecurity=true;loginTimeout=30";
 
             Properties props = new Properties();
             try {
@@ -47,6 +47,10 @@ public class DBManager {
         if(connection == null) {
             connect();
         }
+        return connection;
+    }
+
+    public static Connection getConnectionWithoutConnect() {
         return connection;
     }
 
